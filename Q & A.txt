@@ -1,0 +1,41 @@
+1. Data cleaning including missing values, outliers and multi-collineraity
+
+Null Values - 0
+Missing Value - Merchants (M) removed from nameDest
+Outliers - Balance Figures (oldbalanceOrg | newbalanceOrig | oldbalanceDest | newbalanceDest)
+Multi Colinearity - Removed by first Checking the Co-relation Matrix and then deleting the respective columns
+
+2. Describe your fraud detection model in elaboration
+
+I have used & compared 2 models i.e.
+A. Decision Tree Classifier (Time Taken (mins)- 01:00 | Score: 99.942 )
+B. Random Forest Classifier (Time Taken (mins)- 39:00 | Score: 99.964 )
+I have used the Decision Tree Classifier as it most commonly used for fraud detection. I also used the Random Forest Classifier due to it's high accuracy. Theoretically Both the models can be used in conjunction to find a Fraud Transaction.
+For Eg: Decision Tree being the faster model can look for Fradulent Transaction. If the Fraud Transaction goes undected due to the lower accuracy of Decision Tree, It can later(because of it's slower processing time) be detected by the Random Forest Classifier, Increasing the Precision to a maximum.
+
+3. How did you select variables to be included in the model?
+
+A. Removal of unncessary columns like nameOrig & nameDest
+B. Removal of Values possesed by nameDest starting with 'M' 
+C. Removal of Two (2) more colums after checking the Co-linearity
+
+4. Demonstrate the performance of model by using best set of tools.
+
+F1 Score - 1.00 | Accuracy Score - 1.00 | Classifier Score : 99.94205741240768 (Decision Tree)
+F1 Score - 1.00 | Accuracy Score - 1.00 | Classifier Score : 99.96400853736354 (Random Forest)
+
+5. What are the key factors that predict fradulent customer? 
+
+Transaction Type, newBalanceDest and Amount of Transaction are the key factors.
+
+6. Do these factors make sense? If yes, how? If not, how not?
+
+Yes they make sense, as only CASH_OUT & TRANSFER Transaction Types contained Fraud Transactions
+
+7. What kind of prevention should be adopted while company update its infrastructure?
+
+Verifying Both ends of Transaction and checking Balance changes.
+
+8. Assuming these actions have been implemented, how would you determine if they work?
+
+Constantly Update the model by acquiring and running new data collected through the model and regularly check for accuracy.
